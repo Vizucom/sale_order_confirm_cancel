@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_so_confirmation" model="ir.ui.view">
+            <field name="name">Confirm Cancellation</field>
+            <field name="model">sale_order_confirm_cancel.confirmation</field>
+            <field name="arch" type="xml">
+               <form string="Info">
+               
+                    <group string="Are you sure you want to cancel?"/>
+                    
+                    <footer>
+                        <button name="cancel_quotation" string="Yes" type="object" class="oe_highlight"/>
+                        or
+                        <button string="No" class="oe_link" special="cancel"/>                        
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_cancellation_wizard" model="ir.actions.act_window">
+            <field name="name">Confirm Cancellation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale_order_confirm_cancel.confirmation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>
+

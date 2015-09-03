@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sale_order_form_view_inherit" model="ir.ui.view">
+            <field name="name">sale_order_confirm_cancel.sale.form.inherit</field>
+            <field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml"> 
+                <!-- Hide the original cancel buttons and add new ones -->
+                <button name="cancel" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </button>
+                
+                <button name="cancel" position="after">
+                    <button name="%(sale_order_confirm_cancel.action_view_cancellation_wizard)d"
+                            states="draft,sent" string="Cancel Quotation" groups="base.group_user" 
+                            type="action"/>
+                </button>
+                
+                <button name="action_cancel" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </button>
+                                
+                <button name="action_cancel" position="after">
+                    <button name="%(sale_order_confirm_cancel.action_view_cancellation_wizard)d"
+                            states="manual,progress" string="Cancel Order" groups="base.group_user" 
+                            type="action"/>
+                </button>
+            </field>
+		</record>
+    </data>
+</openerp>
